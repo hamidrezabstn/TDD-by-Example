@@ -1,9 +1,9 @@
 package com.bistooni.tdd.money
 
-class Dollar(var amount: Long) {
+class Dollar(val amount: Long) {
 
-    fun times(multiplier: Int) {
-        amount *= multiplier
+    fun times(multiplier: Int): Dollar {
+        return Dollar(amount * multiplier)
     }
 
 }

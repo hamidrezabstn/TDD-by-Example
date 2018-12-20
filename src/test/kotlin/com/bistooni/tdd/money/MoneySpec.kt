@@ -8,9 +8,13 @@ class MoneySpec {
 
     @Test
     fun testMulti(){
-        val dollar = Dollar(5)
-        dollar.times(2)
-        Assert.assertEquals(10,dollar.amount)
+        val five = Dollar(5)
+
+        var product: Dollar = five.times(2)
+        Assert.assertEquals(10,product.amount)
+
+        product = five.times(3)
+        Assert.assertEquals(15,product.amount)
     }
 
 }
