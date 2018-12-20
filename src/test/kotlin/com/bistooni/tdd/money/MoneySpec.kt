@@ -18,8 +18,6 @@ class MoneySpec {
     fun testEquality(){
         assertTrue(Money.dollar(5) == Money.dollar(5))
         assertFalse(Money.dollar(5) == Money.dollar(6))
-        assertTrue(Money.franc(5) == Money.franc(5))
-        assertFalse(Money.franc(5) == Money.franc(6))
         assertFalse(Money.franc(5).equals( Money.dollar(5)))
     }
 
@@ -39,7 +37,7 @@ class MoneySpec {
 
     @Test
     fun testDiffrentClassEquality() {
-        assertTrue(Money(1,"USD") == (Dollar(1,"USD")))
+        assertTrue(Money(1,"CHD") == (Money.franc(1)))
 
     }
 

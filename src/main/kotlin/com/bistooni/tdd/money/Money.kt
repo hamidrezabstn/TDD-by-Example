@@ -19,16 +19,15 @@ open class Money(protected val amount: Long, protected val currency: String) {
 
     companion object {
         fun dollar(amount: Long): Money{
-            return Dollar(amount,"USD")
+            return Money(amount,"USD")
         }
 
         fun franc(amount: Long): Money{
-            return Franc(amount,"CHD")
+            return Money(amount,"CHD")
         }
     }
 
-    open fun times(multiplier: Int): Money?{
-        return null
-    }
+    open fun times(multiplier: Int): Money? = Money(amount*multiplier,currency)
+
 
 }
