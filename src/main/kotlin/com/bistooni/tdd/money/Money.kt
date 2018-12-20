@@ -1,7 +1,11 @@
 package com.bistooni.tdd.money
 
-abstract class Money(protected val amount: Long) {
+abstract class Money(protected val amount: Long, protected val currency: String) {
 
+
+    fun currency(): String? {
+        return currency
+    }
 
     override fun equals(other: Any?): Boolean {
         if(!this.javaClass.isInstance(other)){
@@ -12,11 +16,11 @@ abstract class Money(protected val amount: Long) {
 
     companion object {
         fun dollar(amount: Long): Money{
-            return Dollar(amount)
+            return Dollar(amount,"USD")
         }
 
         fun franc(amount: Long): Money{
-            return Franc(amount)
+            return Franc(amount,"CHD")
         }
     }
 

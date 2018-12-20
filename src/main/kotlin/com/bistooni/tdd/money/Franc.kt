@@ -1,9 +1,10 @@
 package com.bistooni.tdd.money
 
-class Franc(amount: Long): Money(amount) {
+class Franc(amount: Long, currency: String) : Money(amount,currency) {
 
-    override fun times(multiplier: Int): Franc {
-        return Franc(amount * multiplier)
+
+    override fun times(multiplier: Int): Money {
+        return Money.franc(amount * multiplier)
     }
 
 

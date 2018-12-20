@@ -1,9 +1,9 @@
 package com.bistooni.tdd.money
 
-class Dollar(amount: Long) : Money(amount) {
+class Dollar(amount: Long, currency: String) : Money(amount,currency) {
 
-    override fun times(multiplier: Int): Dollar {
-        return Dollar(amount * multiplier)
+    override fun times(multiplier: Int): Money {
+        return Money.dollar(amount * multiplier)
     }
 
 
