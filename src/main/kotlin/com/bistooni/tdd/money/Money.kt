@@ -1,6 +1,6 @@
 package com.bistooni.tdd.money
 
-open class Money(protected val amount: Long) {
+abstract class Money(protected val amount: Long) {
 
 
     override fun equals(other: Any?): Boolean {
@@ -9,5 +9,17 @@ open class Money(protected val amount: Long) {
         }
         return amount == (other as Money).amount
     }
+
+    companion object {
+        fun dollar(amount: Long): Money{
+            return Dollar(amount)
+        }
+
+        fun franc(amount: Long): Money{
+            return Franc(amount)
+        }
+    }
+
+    abstract fun times(multiplier: Int): Money
 
 }
