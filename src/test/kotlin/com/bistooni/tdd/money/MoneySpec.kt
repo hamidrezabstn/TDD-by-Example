@@ -41,4 +41,15 @@ class MoneySpec {
 
     }
 
+    @Test
+    fun testSimpleAddition() {
+        val five = Money.dollar(5)
+        val sum : Expression = five.plus(Money.dollar(10))
+        val bank = Bank()
+        val result = bank.reduced(sum,"USD")
+        assertEquals(result,Money.dollar(15))
+
+
+    }
+
 }

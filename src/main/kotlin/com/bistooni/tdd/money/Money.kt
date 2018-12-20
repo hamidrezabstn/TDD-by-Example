@@ -1,6 +1,7 @@
 package com.bistooni.tdd.money
 
-open class Money(protected val amount: Long, protected val currency: String) {
+open class Money(protected val amount: Long, protected val currency: String)
+    :Expression{
 
 
     fun currency(): String? {
@@ -28,6 +29,9 @@ open class Money(protected val amount: Long, protected val currency: String) {
     }
 
     open fun times(multiplier: Int): Money? = Money(amount*multiplier,currency)
+    fun plus(money: Money): Money {
+        return Money(amount + money.amount,currency)
+    }
 
 
 }
