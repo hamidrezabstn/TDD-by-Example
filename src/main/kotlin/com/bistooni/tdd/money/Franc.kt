@@ -1,13 +1,11 @@
 package com.bistooni.tdd.money
 
-class Franc(private val amount: Long) {
+class Franc(amount: Long): Money(amount) {
 
     fun times(multiplier: Int): Franc {
         return Franc(amount * multiplier)
     }
 
-    override fun equals(other: Any?): Boolean {
-        return amount == (other as Franc).amount
-    }
+
 
 }
