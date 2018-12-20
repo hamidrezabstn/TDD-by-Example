@@ -37,4 +37,10 @@ class MoneySpec {
         assertEquals("CHD",Money.franc(1).currency())
     }
 
+    @Test
+    fun testDiffrentClassEquality() {
+        assertTrue(Money(1,"USD") == (Dollar(1,"USD")))
+
+    }
+
 }
