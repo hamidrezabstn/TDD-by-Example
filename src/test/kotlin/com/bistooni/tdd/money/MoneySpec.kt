@@ -20,6 +20,7 @@ class MoneySpec {
         assertFalse(Dollar(5) == Dollar(6))
         assertTrue(Franc(5) == Franc(5))
         assertFalse(Franc(5) == Franc(6))
+        assertFalse(Franc(5).equals( Dollar(5)))
     }
 
     @Test
