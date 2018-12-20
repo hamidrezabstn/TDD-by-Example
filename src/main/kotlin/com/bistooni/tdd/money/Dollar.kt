@@ -6,4 +6,8 @@ class Dollar(val amount: Long) {
         return Dollar(amount * multiplier)
     }
 
+    override fun equals(other: Any?): Boolean {
+        return amount == (other as Dollar).amount
+    }
+
 }

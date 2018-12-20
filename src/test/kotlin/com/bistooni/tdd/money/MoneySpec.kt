@@ -1,6 +1,6 @@
 package com.bistooni.tdd.money
 
-import org.junit.Assert
+import org.junit.Assert.*
 import org.junit.Test
 
 
@@ -11,10 +11,16 @@ class MoneySpec {
         val five = Dollar(5)
 
         var product: Dollar = five.times(2)
-        Assert.assertEquals(10,product.amount)
+        assertEquals(10,product.amount)
 
         product = five.times(3)
-        Assert.assertEquals(15,product.amount)
+        assertEquals(15,product.amount)
+    }
+
+    @Test
+    fun testEquality(){
+        assertTrue(Dollar(5) == Dollar(5))
+        assertFalse(Dollar(5) == Dollar(6))
     }
 
 }
