@@ -12,7 +12,8 @@ repositories {
 }
 
 dependencies {
-    compile(kotlin("stdlib-jdk8"))
+    compile(kotlin("stdlib-jdk8","1.3.11"))
+    testCompile("junit","junit","4.12")
 }
 
 tasks.withType<KotlinCompile> {

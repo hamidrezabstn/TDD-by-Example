@@ -94,6 +94,33 @@ class MoneySpec {
         val result = bank.reduced(fiveDollar.plus(Money.franc(10))!!,"USD")
 
         assertEquals(Money.dollar(10),result)
-
     }
+
+    @Test
+    fun testSumPlus(){
+        val fiveDollar : Expression = Money.dollar(5)
+        val tenFrank : Expression = Money.franc(10)
+        val bank = Bank()
+        bank.addRate("CHD","USD",2)
+        val sum = Sum(fiveDollar,tenFrank).plus(fiveDollar)
+
+        assertEquals(Money.dollar(15),sum.reduce(bank,"USD"))
+    }
+
+    @Test
+    fun testSumTimes(){
+        val fiveDollar : Expression = Money.dollar(5)
+        val tenFrank : Expression = Money.franc(10)
+        val bank = Bank()
+        bank.addRate("CHD","USD",2)
+        val sum = Sum(fiveDollar,tenFrank).times(2)
+
+        assertEquals(Money.dollar(20),sum!!.reduce(bank,"USD"))
+    }
+
+    /*@Test
+    fun testPlusSameCurrencyReturnsMoney(){
+        val result: Expression = Money.dollar(1).plus(Money.dollar(1))
+        assertTrue(result is Money)
+    }*/
 }

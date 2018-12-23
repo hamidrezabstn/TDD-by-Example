@@ -31,11 +31,11 @@ open class Money(val amount: Long, protected val currency: String)
         }
     }
 
-    override fun plus(money: Expression): Expression? {
+    override fun plus(money: Expression): Expression {
         return Sum(this,money)
     }
 
-    open fun times(multiplier: Int): Expression? = Money(amount*multiplier,currency)
+    override fun times(multiplier: Int): Expression = Money(amount*multiplier,currency)
 
 
 
