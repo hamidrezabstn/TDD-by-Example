@@ -1,7 +1,10 @@
 package com.bistooni.tdd.money
 
-open class Money(protected val amount: Long, protected val currency: String)
+open class Money(val amount: Long, protected val currency: String)
     :Expression{
+    override fun reduce(to: String): Money {
+        return this
+    }
 
 
     fun currency(): String? {
@@ -28,10 +31,13 @@ open class Money(protected val amount: Long, protected val currency: String)
         }
     }
 
-    open fun times(multiplier: Int): Money? = Money(amount*multiplier,currency)
-    fun plus(money: Money): Money {
-        return Money(amount + money.amount,currency)
+    fun plus(money: Money): Sum {
+        return Sum(this,money)
     }
+
+    open fun times(multiplier: Int): Money? = Money(amount*multiplier,currency)
+
+
 
 
 }
