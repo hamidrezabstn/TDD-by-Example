@@ -1,6 +1,5 @@
 package com.bistooni.tdd.money
 
-import com.sun.javaws.exceptions.InvalidArgumentException
 import java.util.*
 
 class Bank {
@@ -20,7 +19,7 @@ class Bank {
             return 1
         if (rates.get(Pair(from,to)) != null)
             return rates.get(Pair(from,to))!!
-        return 1 //need exception for invalid rates
+        return 0//need exception for invalid rates
     }
 
 }

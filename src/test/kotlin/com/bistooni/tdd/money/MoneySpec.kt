@@ -44,7 +44,7 @@ class MoneySpec {
     @Test
     fun testSimpleAddition() {
         val five = Money.dollar(5)
-        val sum : Expression = five.plus(Money.dollar(10))
+        val sum : Expression = five.plus(Money.dollar(10))!!
         val bank = Bank()
         val result = bank.reduced(sum,"USD")
         assertEquals(result,Money.dollar(15))
@@ -62,7 +62,7 @@ class MoneySpec {
     @Test
     fun testReduceSum(){
         val five = Money.dollar(5)
-        val sum : Expression = five.plus(Money.dollar(8))
+        val sum : Expression = five.plus(Money.dollar(8))!!
         val bank = Bank()
         val result = bank.reduced(sum,"USD")
         assertEquals(result,Money.dollar(13))
@@ -82,5 +82,18 @@ class MoneySpec {
         val result = bank.reduced(Money.franc(2),"USD")
 
         assertEquals(Money(1,"USD"),result)
+    }
+
+    @Test
+    fun testMixAddition(){
+        val fiveDollar : Expression = Money.dollar(5)
+        val tenFrank : Expression = Money.franc(10)
+        val bank = Bank()
+        bank.addRate("CHD","USD",2)
+
+        val result = bank.reduced(fiveDollar.plus(Money.franc(10))!!,"USD")
+
+        assertEquals(Money.dollar(10),result)
+
     }
 }
