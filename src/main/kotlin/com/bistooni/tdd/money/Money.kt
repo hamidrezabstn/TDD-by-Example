@@ -2,12 +2,12 @@ package com.bistooni.tdd.money
 
 open class Money(val amount: Long, protected val currency: String)
     :Expression{
-    override fun reduce(to: String): Money {
-        return this
+    override fun reduce(bank: Bank, to: String): Money {
+        return Money(amount/bank.rate(currency,to),to)
     }
 
 
-    fun currency(): String? {
+    fun currency(): String {
         return currency
     }
 

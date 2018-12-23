@@ -74,4 +74,13 @@ class MoneySpec {
         val result = bank.reduced(Money.dollar(1),"USD")
         assertEquals(Money.dollar(1),result)
     }
+
+    @Test
+    fun testDiffrentCurrencyConversion(){
+        val bank = Bank()
+        bank.addRate("CHD","USD",2)
+        val result = bank.reduced(Money.franc(2),"USD")
+
+        assertEquals(Money(1,"USD"),result)
+    }
 }
